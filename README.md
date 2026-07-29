@@ -1,6 +1,7 @@
 # 라운지핏 회원·수업 예약 플랫폼
 
 **🔗 라이브 데모**: https://loungefit-booking-production.up.railway.app
+
 **🔗 관리자 페이지**: https://loungefit-booking-production.up.railway.app/admin (비밀번호:ADMIN_PASSWORD)
 
 필라테스·요가 스튜디오 체인 라운지핏(지점 3곳, 회원 약 1,200명)을 위한 회원 예약 + 횟수제 이용권 자동 관리 시스템입니다. 고객(운영이사 정유나)과의 상담을 바탕으로 설계했습니다.
