@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum BookingStatus {
+  BOOKED
+  CANCELLED
+  ATTENDED
+  NO_SHOW
+}
+
+model Branch {
+  id       String    @id @default(cuid())
+  name     String
+  classes  ClassSession[]
+}
+
+model Member {
+  id        String    @id @default(cuid())
+  name      String
+  phone     String    @unique
+  createdAt DateTime  @default(now())
+  passes    Pass[]
+  bookings  Booking[]
+}
+
+// 횟수제 이용권. 관리자가 회원에게 직접 부여(결제 연동 없음).
+model Pass {
+  id               String    @id @default(cuid())
+  memberId         String
+  member           Member    @relation(fields: [memberId], references: [id])
+  totalSessions    Int
+  usedSessions     Int       @default(0)
+  issuedAt         DateTime  @default(now())
+  expiresAt        DateTime?
+  bookings         Booking[]
+}
+
+model ClassSession {
+  id         String    @id @default(cuid())
+  branchId   String
+  branch     Branch    @relation(fields: [branchId], references: [id])
+  title      String
+  instructor String
+  startTime  DateTime
+  endTime    DateTime
+  capacity   Int
+  bookings   Booking[]
+}
+
+model Booking {
+  id             String        @id @default(cuid())
+  classSessionId String
+  classSession   ClassSession  @relation(fields: [classSessionId], references: [id])
+  memberId       String
+  member         Member        @relation(fields: [memberId], references: [id])
+  passId         String
+  pass           Pass          @relation(fields: [passId], references: [id])
+  status         BookingStatus @default(BOOKED)
+  createdAt      DateTime      @default(now())
+
+  @@unique([classSessionId, memberId]) // 같은 수업 중복 예약 방지
+}

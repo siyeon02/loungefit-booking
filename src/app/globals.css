@@ -1,0 +1,94 @@
+:root {
+  --ink: #1f2b24;
+  --forest: #2f4a3d;
+  --paper: #faf7f2;
+  --paper-card: #ffffff;
+  --line: #e7e1d6;
+  --peach: #f0a878;
+  --peach-ink: #1f2b24;
+  --text-muted: #7a7268;
+  --danger: #c14a3a;
+  --success: #3f7d5c;
+  --radius: 16px;
+  --sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+.topbar { background: var(--forest); color: white; padding: 18px 0; }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-weight: 700; letter-spacing: -0.01em; font-size: 19px; }
+.brand span { color: var(--peach); }
+
+.hero { padding: 56px 0 32px; }
+.eyebrow { font-size: 13px; color: var(--forest); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.hero h1 { font-size: 34px; line-height: 1.3; margin: 10px 0 12px; letter-spacing: -0.01em; }
+.hero p { color: var(--text-muted); font-size: 15px; line-height: 1.6; max-width: 520px; }
+
+.card { background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius); }
+.section { padding: 28px 0; }
+
+.login-card { max-width: 380px; margin: 40px auto; padding: 32px; }
+.form-field { margin-bottom: 14px; }
+.form-field label { display: block; font-size: 13px; margin-bottom: 6px; color: var(--text-muted); }
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px;
+  font-size: 14px; font-family: inherit;
+}
+.form-field input:focus, .form-field select:focus { outline: none; border-color: var(--forest); }
+
+.btn {
+  border: 1px solid var(--line); background: white; border-radius: 10px;
+  padding: 8px 14px; font-size: 13px; cursor: pointer; font-family: inherit;
+}
+.btn.primary { background: var(--forest); color: white; border-color: var(--forest); }
+.btn.accent { background: var(--peach); color: var(--peach-ink); border-color: var(--peach); font-weight: 600; }
+.btn.danger { background: white; color: var(--danger); border-color: var(--danger); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn.block { width: 100%; }
+
+.pass-summary {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--forest); color: white; border-radius: var(--radius);
+  padding: 18px 22px; margin-bottom: 20px;
+}
+.pass-summary .num { font-size: 30px; font-weight: 700; color: var(--peach); }
+.pass-summary .label { font-size: 13px; color: #cdd8d0; margin-top: 2px; }
+
+.class-list { display: flex; flex-direction: column; gap: 10px; }
+.class-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 18px; gap: 16px;
+}
+.class-row .time { font-weight: 700; font-size: 15px; min-width: 84px; }
+.class-row .date-badge { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+.class-row .meta { flex: 1; }
+.class-row .title { font-weight: 600; font-size: 15px; }
+.class-row .sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.class-row .capacity { font-size: 12px; color: var(--text-muted); text-align: right; min-width: 70px; }
+.class-row .capacity.full { color: var(--danger); font-weight: 600; }
+
+.tag { display: inline-block; font-size: 11px; padding: 3px 8px; border-radius: 999px; background: #eef3ef; color: var(--forest); margin-left: 6px; }
+
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 999px; font-weight: 600; }
+.badge.booked { background: #eef3ef; color: var(--forest); }
+.badge.cancelled { background: #f1f1f1; color: #888; }
+.badge.attended { background: #e5f2ea; color: var(--success); }
+.badge.no_show { background: #fbe8e4; color: var(--danger); }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); font-size: 14px; }
+th { color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; }
+
+.tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+.tab-btn { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: white; cursor: pointer; font-size: 13px; }
+.tab-btn.active { background: var(--forest); color: white; border-color: var(--forest); }
+
+.admin-shell { min-height: 100vh; }
+
+.error-text { color: var(--danger); font-size: 13px; margin-top: 4px; }
+.muted { color: var(--text-muted); font-size: 13px; }
